@@ -19,7 +19,7 @@ struct MainTabView: View {
                 }
                 .tag(Tab.home)
 
-            CuisineMapView()
+            NotFoundView()
                 .tabItem {
                     Label("Map", systemImage: "map.fill")
                 }
@@ -31,7 +31,7 @@ struct MainTabView: View {
                 }
                 .tag(Tab.plate)
 
-            GroupsView()
+            NotFoundView()
                 .tabItem {
                     Label("Groups", systemImage: "person.3.fill")
                 }

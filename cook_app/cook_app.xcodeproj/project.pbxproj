@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,13 +16,8 @@
 		CE7EA5452F37C972008F46A5 /* cook_appUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7EA5442F37C972008F46A5 /* cook_appUITestsLaunchTests.swift */; };
 		CE7EA57D2F37CF20008F46A5 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7EA56D2F37CF20008F46A5 /* MockData.swift */; };
 		CE7EA57E2F37CF20008F46A5 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7EA56F2F37CF20008F46A5 /* Models.swift */; };
-		CE7EA57F2F37CF20008F46A5 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7EA5712F37CF20008F46A5 /* AccountView.swift */; };
-		CE7EA5802F37CF20008F46A5 /* CuisineMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7EA5722F37CF20008F46A5 /* CuisineMapView.swift */; };
-		CE7EA5812F37CF20008F46A5 /* GroupsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7EA5732F37CF20008F46A5 /* GroupsView.swift */; };
-		CE7EA5822F37CF20008F46A5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7EA5742F37CF20008F46A5 /* HomeView.swift */; };
 		CE7EA5832F37CF20008F46A5 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7EA5752F37CF20008F46A5 /* MainTabView.swift */; };
 		CE7EA5842F37CF20008F46A5 /* NotFoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7EA5762F37CF20008F46A5 /* NotFoundView.swift */; };
-		CE7EA5852F37CF20008F46A5 /* PlateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7EA5772F37CF20008F46A5 /* PlateView.swift */; };
 		CE7EA5862F37CF20008F46A5 /* PostCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7EA5782F37CF20008F46A5 /* PostCardView.swift */; };
 		CE7EA5882F37CF20008F46A5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CE7EA57B2F37CF20008F46A5 /* README.md */; };
 /* End PBXBuildFile section */
@@ -58,16 +53,19 @@
 		CE7EA5442F37C972008F46A5 /* cook_appUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cook_appUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CE7EA56D2F37CF20008F46A5 /* MockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		CE7EA56F2F37CF20008F46A5 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
-		CE7EA5712F37CF20008F46A5 /* AccountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
-		CE7EA5722F37CF20008F46A5 /* CuisineMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuisineMapView.swift; sourceTree = "<group>"; };
-		CE7EA5732F37CF20008F46A5 /* GroupsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsView.swift; sourceTree = "<group>"; };
-		CE7EA5742F37CF20008F46A5 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CE7EA5752F37CF20008F46A5 /* MainTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		CE7EA5762F37CF20008F46A5 /* NotFoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotFoundView.swift; sourceTree = "<group>"; };
-		CE7EA5772F37CF20008F46A5 /* PlateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlateView.swift; sourceTree = "<group>"; };
 		CE7EA5782F37CF20008F46A5 /* PostCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCardView.swift; sourceTree = "<group>"; };
-		CE7EA57B2F37CF20008F46A5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		CE7EA57B2F37CF20008F46A5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../HomePlate/README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		179E7D662F37F3CA00D20E19 /* Account */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Account; sourceTree = "<group>"; };
+		179E7D672F37F3E600D20E19 /* Map */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Map; sourceTree = "<group>"; };
+		179E7D682F37F3F400D20E19 /* Groups */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Groups; sourceTree = "<group>"; };
+		179E7D692F37F42500D20E19 /* Home */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Home; sourceTree = "<group>"; };
+		179E7D6A2F37F45300D20E19 /* Plate */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Plate; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		CE7EA5202F37C968008F46A5 /* Frameworks */ = {
@@ -97,7 +95,6 @@
 		CE7EA51A2F37C968008F46A5 = {
 			isa = PBXGroup;
 			children = (
-				CE7EA57C2F37CF20008F46A5 /* HomePlate */,
 				CE7EA5252F37C968008F46A5 /* cook_app */,
 				CE7EA5372F37C972008F46A5 /* cook_appTests */,
 				CE7EA5412F37C972008F46A5 /* cook_appUITests */,
@@ -123,6 +120,10 @@
 				CE7EA52A2F37C971008F46A5 /* Assets.xcassets */,
 				CE7EA52C2F37C971008F46A5 /* cook_app.entitlements */,
 				CE7EA52D2F37C971008F46A5 /* Preview Content */,
+				CE7EA56E2F37CF20008F46A5 /* Data */,
+				CE7EA5702F37CF20008F46A5 /* Models */,
+				CE7EA5792F37CF20008F46A5 /* Views */,
+				CE7EA57B2F37CF20008F46A5 /* README.md */,
 			);
 			path = cook_app;
 			sourceTree = "<group>";
@@ -157,7 +158,8 @@
 			children = (
 				CE7EA56D2F37CF20008F46A5 /* MockData.swift */,
 			);
-			path = Data;
+			name = Data;
+			path = ../../HomePlate/Data;
 			sourceTree = "<group>";
 		};
 		CE7EA5702F37CF20008F46A5 /* Models */ = {
@@ -165,34 +167,24 @@
 			children = (
 				CE7EA56F2F37CF20008F46A5 /* Models.swift */,
 			);
-			path = Models;
+			name = Models;
+			path = ../../HomePlate/Models;
 			sourceTree = "<group>";
 		};
 		CE7EA5792F37CF20008F46A5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CE7EA5712F37CF20008F46A5 /* AccountView.swift */,
-				CE7EA5722F37CF20008F46A5 /* CuisineMapView.swift */,
-				CE7EA5732F37CF20008F46A5 /* GroupsView.swift */,
-				CE7EA5742F37CF20008F46A5 /* HomeView.swift */,
+				179E7D6A2F37F45300D20E19 /* Plate */,
+				179E7D692F37F42500D20E19 /* Home */,
+				179E7D682F37F3F400D20E19 /* Groups */,
+				179E7D672F37F3E600D20E19 /* Map */,
+				179E7D662F37F3CA00D20E19 /* Account */,
 				CE7EA5752F37CF20008F46A5 /* MainTabView.swift */,
 				CE7EA5762F37CF20008F46A5 /* NotFoundView.swift */,
-				CE7EA5772F37CF20008F46A5 /* PlateView.swift */,
 				CE7EA5782F37CF20008F46A5 /* PostCardView.swift */,
 			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		CE7EA57C2F37CF20008F46A5 /* HomePlate */ = {
-			isa = PBXGroup;
-			children = (
-				CE7EA56E2F37CF20008F46A5 /* Data */,
-				CE7EA5702F37CF20008F46A5 /* Models */,
-				CE7EA5792F37CF20008F46A5 /* Views */,
-				CE7EA57B2F37CF20008F46A5 /* README.md */,
-			);
-			name = HomePlate;
-			path = ../HomePlate;
+			name = Views;
+			path = ../../HomePlate/Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +201,13 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				179E7D662F37F3CA00D20E19 /* Account */,
+				179E7D672F37F3E600D20E19 /* Map */,
+				179E7D682F37F3F400D20E19 /* Groups */,
+				179E7D692F37F42500D20E19 /* Home */,
+				179E7D6A2F37F45300D20E19 /* Plate */,
 			);
 			name = cook_app;
 			productName = cook_app;
@@ -333,11 +332,6 @@
 				CE7EA5842F37CF20008F46A5 /* NotFoundView.swift in Sources */,
 				CE7EA5272F37C968008F46A5 /* cook_appApp.swift in Sources */,
 				CE7EA57E2F37CF20008F46A5 /* Models.swift in Sources */,
-				CE7EA5802F37CF20008F46A5 /* CuisineMapView.swift in Sources */,
-				CE7EA5822F37CF20008F46A5 /* HomeView.swift in Sources */,
-				CE7EA5812F37CF20008F46A5 /* GroupsView.swift in Sources */,
-				CE7EA5852F37CF20008F46A5 /* PlateView.swift in Sources */,
-				CE7EA57F2F37CF20008F46A5 /* AccountView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
