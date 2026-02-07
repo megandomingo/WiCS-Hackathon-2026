@@ -1,5 +1,6 @@
 import SwiftUI
 import PhotosUI
+import UIKit
 
 let cuisineOptions = [
     "Italian", "Japanese", "Mexican", "Thai", "Indian", "French", "Chinese", "Mediterranean",
@@ -204,8 +205,4 @@ struct PlateView: View {
             }
         }
     }
-}
-
-#Preview {
-    PlateView()
 }

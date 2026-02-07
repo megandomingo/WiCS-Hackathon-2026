@@ -24,7 +24,6 @@
 		CE7EA5842F37CF20008F46A5 /* NotFoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7EA5762F37CF20008F46A5 /* NotFoundView.swift */; };
 		CE7EA5852F37CF20008F46A5 /* PlateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7EA5772F37CF20008F46A5 /* PlateView.swift */; };
 		CE7EA5862F37CF20008F46A5 /* PostCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7EA5782F37CF20008F46A5 /* PostCardView.swift */; };
-		CE7EA5872F37CF20008F46A5 /* HomePlateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7EA57A2F37CF20008F46A5 /* HomePlateApp.swift */; };
 		CE7EA5882F37CF20008F46A5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CE7EA57B2F37CF20008F46A5 /* README.md */; };
 /* End PBXBuildFile section */
 
@@ -67,7 +66,6 @@
 		CE7EA5762F37CF20008F46A5 /* NotFoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotFoundView.swift; sourceTree = "<group>"; };
 		CE7EA5772F37CF20008F46A5 /* PlateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlateView.swift; sourceTree = "<group>"; };
 		CE7EA5782F37CF20008F46A5 /* PostCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCardView.swift; sourceTree = "<group>"; };
-		CE7EA57A2F37CF20008F46A5 /* HomePlateApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePlateApp.swift; sourceTree = "<group>"; };
 		CE7EA57B2F37CF20008F46A5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,7 +189,6 @@
 				CE7EA56E2F37CF20008F46A5 /* Data */,
 				CE7EA5702F37CF20008F46A5 /* Models */,
 				CE7EA5792F37CF20008F46A5 /* Views */,
-				CE7EA57A2F37CF20008F46A5 /* HomePlateApp.swift */,
 				CE7EA57B2F37CF20008F46A5 /* README.md */,
 			);
 			name = HomePlate;
@@ -333,7 +330,6 @@
 				CE7EA5292F37C968008F46A5 /* ContentView.swift in Sources */,
 				CE7EA57D2F37CF20008F46A5 /* MockData.swift in Sources */,
 				CE7EA5832F37CF20008F46A5 /* MainTabView.swift in Sources */,
-				CE7EA5872F37CF20008F46A5 /* HomePlateApp.swift in Sources */,
 				CE7EA5842F37CF20008F46A5 /* NotFoundView.swift in Sources */,
 				CE7EA5272F37C968008F46A5 /* cook_appApp.swift in Sources */,
 				CE7EA57E2F37CF20008F46A5 /* Models.swift in Sources */,
