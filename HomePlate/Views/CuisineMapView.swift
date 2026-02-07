@@ -7,8 +7,10 @@ private let cuisineEmoji: [String: String] = [
 
 struct CuisineMapView: View {
     private let currentUser = MockData.currentUser
-    private var cuisines: [(String, Int)] {
-        currentUser.cuisinesCookedCount.sorted { $0.value > $1.value }
+    private var cuisines: [(cuisine: String, count: Int)] {
+        currentUser.cuisinesCookedCount
+            .map { ($0.key, $0.value) }
+            .sorted { $0.count > $1.count }
     }
     private var maxCount: Int {
         currentUser.cuisinesCookedCount.values.max() ?? 1
@@ -73,7 +75,10 @@ struct CuisineMapView: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
 
                         Divider()
-                        ForEach(cuisines, id: \.0) { cuisine, count in
+                        ForEach(cuisines, id: \.cuisine) { item in
+                            let cuisine = item.cuisine
+                            let count = item.count
+
                             VStack(alignment: .leading, spacing: 8) {
                                 HStack {
                                     Text(emoji(for: cuisine))
@@ -98,7 +103,18 @@ struct CuisineMapView: View {
                                             .fill(
                                                 LinearGradient(colors: [.orange, .red], startPoint: .leading, endPoint: .trailing)
                                             )
-                                            .frame(width: geo.size.width * CGFloat(count) / CGFloat(maxCount))
+                                        let progress = geo.size.width * CGFloat(count) / CGFloat(maxCount)
+
+                                        RoundedRectangle(cornerRadius: 4)
+                                            .fill(
+                                                LinearGradient(
+                                                    colors: [.orange, .red],
+                                                    startPoint: .leading,
+                                                    endPoint: .trailing
+                                                )
+                                            )
+                                            .frame(width: progress)
+
                                     }
                                 }
                                 .frame(height: 8)

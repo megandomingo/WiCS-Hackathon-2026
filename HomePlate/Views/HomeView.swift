@@ -38,7 +38,7 @@ struct HomeView: View {
                 LazyVStack(spacing: 24) {
                     ForEach($posts) { $post in
                         PostCardView(
-                            post: post,
+                            post: $post,
                             onRate: { handleRate(postId: post.id, rating: $0) },
                             onComment: { handleComment(postId: post.id, text: $0) },
                             onSave: { handleSave(postId: post.id) },

@@ -23,7 +23,7 @@ struct GroupsView: View {
 
     var body: some View {
         NavigationStack {
-            Group {
+            VStack {
                 if groups.isEmpty {
                     VStack(spacing: 16) {
                         Image(systemName: "person.3")

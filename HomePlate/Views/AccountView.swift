@@ -25,9 +25,16 @@ struct AccountView: View {
                 VStack(alignment: .leading, spacing: 0) {
                     // Profile header
                     HStack(alignment: .top, spacing: 16) {
-                        AsyncImage(url: URL(string: currentUser.avatar)) { image in
-                            image.resizable().scaledToFill()
-                        } placeholder: { Color.gray.opacity(0.3) }
+                        AsyncImage(
+                            url: URL(string: currentUser.avatar),
+                            content: { image in
+                                image.resizable().scaledToFill()
+                            },
+                            placeholder: {
+                                Color.gray.opacity(0.3)
+                            }
+                        )
+
                         .frame(width: 80, height: 80)
                         .clipShape(Circle())
 
@@ -95,15 +102,21 @@ struct AccountView: View {
                     .padding(.horizontal)
 
                     // Content
-                    Group {
+                    SwiftUI.Group {
                         switch activeTab {
                         case .posts:
                             LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 2) {
                                 ForEach(userPosts) { post in
                                     if let url = post.images.first {
-                                        AsyncImage(url: URL(string: url)) { image in
-                                            image.resizable().scaledToFill()
-                                        } placeholder: { Color.gray.opacity(0.3) }
+                                        AsyncImage(
+                                            url: URL(string: url),
+                                            content: { image in
+                                                image.resizable().scaledToFill()
+                                            },
+                                            placeholder: {
+                                                Color.gray.opacity(0.3)
+                                            }
+                                        )
                                         .aspectRatio(1, contentMode: .fill)
                                         .clipped()
                                     }
@@ -164,9 +177,15 @@ struct AccountView: View {
 
                                 ForEach(friends) { friend in
                                     HStack(spacing: 12) {
-                                        AsyncImage(url: URL(string: friend.avatar)) { image in
-                                            image.resizable().scaledToFill()
-                                        } placeholder: { Color.gray.opacity(0.3) }
+                                        AsyncImage(
+                                            url: URL(string: friend.avatar),
+                                            content: { image in
+                                                image.resizable().scaledToFill()
+                                            },
+                                            placeholder: {
+                                                Color.gray.opacity(0.3)
+                                            }
+                                        )
                                         .frame(width: 48, height: 48)
                                         .clipShape(Circle())
 
