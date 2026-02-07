@@ -10,6 +10,7 @@ enum Tab: Int, CaseIterable {
 
 struct MainTabView: View {
     @State private var selectedTab: Tab = .home
+    @StateObject private var postStore = PostStore()
 
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -44,6 +45,7 @@ struct MainTabView: View {
                 .tag(Tab.account)
         }
         .tint(Color.orange)
+        .environmentObject(postStore)
     }
 }
 

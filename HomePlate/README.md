@@ -40,7 +40,7 @@ HomePlate/
 ├── Models/
 │   └── Models.swift        # Post, User, Achievement, Friend, Group
 ├── Data/
-│   └── MockData.swift      # currentUser, mockPosts, mockFriends, mockGroups
+│   └── MockData.swift      # currentUser, mockFriends, mockGroups
 └── Views/
     ├── MainTabView.swift   # Tab bar: Home, Map, Plate, Groups, Account
     ├── HomeView.swift      # Feed + streak header

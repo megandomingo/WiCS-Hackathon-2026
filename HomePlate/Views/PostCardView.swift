@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 struct PostCardView: View {
     @Binding var post: Post
@@ -61,11 +62,16 @@ struct PostCardView: View {
             .padding()
 
             // Image
-            AsyncImage(url: URL(string: post.images.first ?? "")) { image in
-                image.resizable().scaledToFill()
-            } placeholder: { Color.gray.opacity(0.3) }
-            .frame(height: 280)
-            .clipped()
+            if let firstImage = post.images.first, let uiImage = UIImage(data: firstImage.data) {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(height: 280)
+                    .clipped()
+            } else {
+                Color.gray.opacity(0.3)
+                    .frame(height: 280)
+            }
 
             // Content
             VStack(alignment: .leading, spacing: 12) {

@@ -13,7 +13,13 @@ enum RecipeType: String, CaseIterable {
     case custom = "Custom"
 }
 
+#Preview {
+    PlateView()
+        .environmentObject(PostStore())
+}
+
 struct PlateView: View {
+    @EnvironmentObject private var postStore: PostStore
     @State private var imageDataList: [Data] = []
     @State private var title = ""
     @State private var cuisine = ""
@@ -26,6 +32,8 @@ struct PlateView: View {
     @State private var alertMessage = ""
     @State private var selectedItems: [PhotosPickerItem] = []
 
+    private let currentUser = MockData.currentUser
+
     private func post() async {
         guard !imageDataList.isEmpty, !title.isEmpty, !cuisine.isEmpty, !description.isEmpty else {
             alertMessage = "Please fill in all required fields and add at least one image!"
@@ -34,6 +42,23 @@ struct PlateView: View {
         }
         isPosting = true
         try? await Task.sleep(nanoseconds: 1_000_000_000)
+        let newPost = Post(
+            id: UUID().uuidString,
+            userId: currentUser.id,
+            userName: currentUser.name,
+            userAvatar: currentUser.avatar,
+            images: imageDataList.map { PostImage(data: $0) },
+            cuisine: cuisine,
+            title: title,
+            description: description,
+            recipeLink: recipeType == .link ? recipeLink : nil,
+            customRecipe: recipeType == .custom ? customRecipe : nil,
+            createdAt: ISO8601DateFormatter().string(from: Date()),
+            ratings: [],
+            comments: [],
+            saves: []
+        )
+        postStore.addPost(newPost)
         imageDataList = []
         title = ""
         cuisine = ""
