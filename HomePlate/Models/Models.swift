@@ -5,7 +5,7 @@ struct Post: Identifiable {
     var userId: String
     var userName: String
     var userAvatar: String
-    var images: [String]
+    var images: [PostImage]
     var cuisine: String
     var title: String
     var description: String
@@ -15,6 +15,11 @@ struct Post: Identifiable {
     var ratings: [PostRating]
     var comments: [PostComment]
     var saves: [String]
+}
+
+struct PostImage: Identifiable {
+    let id = UUID()
+    let data: Data
 }
 
 struct PostRating: Identifiable {

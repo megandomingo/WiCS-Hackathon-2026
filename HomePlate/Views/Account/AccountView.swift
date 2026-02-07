@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 enum AccountTab: String, CaseIterable {
     case posts = "Posts"
@@ -7,12 +8,13 @@ enum AccountTab: String, CaseIterable {
 }
 
 struct AccountView: View {
+    @EnvironmentObject private var postStore: PostStore
     @State private var activeTab: AccountTab = .posts
     @State private var friends: [Friend] = MockData.mockFriends
 
     private let currentUser = MockData.currentUser
     private var userPosts: [Post] {
-        MockData.mockPosts.filter { $0.userId == currentUser.id }
+        postStore.posts.filter { $0.userId == currentUser.id }
     }
 
     private func removeFriend(id: String) {
@@ -107,18 +109,12 @@ struct AccountView: View {
                         case .posts:
                             LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 2) {
                                 ForEach(userPosts) { post in
-                                    if let url = post.images.first {
-                                        AsyncImage(
-                                            url: URL(string: url),
-                                            content: { image in
-                                                image.resizable().scaledToFill()
-                                            },
-                                            placeholder: {
-                                                Color.gray.opacity(0.3)
-                                            }
-                                        )
-                                        .aspectRatio(1, contentMode: .fill)
-                                        .clipped()
+                                    if let firstImage = post.images.first, let uiImage = UIImage(data: firstImage.data) {
+                                        Image(uiImage: uiImage)
+                                            .resizable()
+                                            .scaledToFill()
+                                            .aspectRatio(1, contentMode: .fill)
+                                            .clipped()
                                     }
                                 }
                             }
@@ -227,4 +223,5 @@ struct AccountView: View {
 
 #Preview {
     AccountView()
+        .environmentObject(PostStore())
 }

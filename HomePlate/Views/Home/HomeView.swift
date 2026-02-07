@@ -1,21 +1,21 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State private var posts: [Post] = MockData.mockPosts
+    @EnvironmentObject private var postStore: PostStore
     private let currentUser = MockData.currentUser
 
     private func handleRate(postId: String, rating: Int) {
-        guard let index = posts.firstIndex(where: { $0.id == postId }) else { return }
-        if let ratingIndex = posts[index].ratings.firstIndex(where: { $0.userId == currentUser.id }) {
-            posts[index].ratings[ratingIndex].rating = rating
+        guard let index = postStore.posts.firstIndex(where: { $0.id == postId }) else { return }
+        if let ratingIndex = postStore.posts[index].ratings.firstIndex(where: { $0.userId == currentUser.id }) {
+            postStore.posts[index].ratings[ratingIndex].rating = rating
         } else {
-            posts[index].ratings.append(PostRating(userId: currentUser.id, rating: rating))
+            postStore.posts[index].ratings.append(PostRating(userId: currentUser.id, rating: rating))
         }
     }
 
     private func handleComment(postId: String, text: String) {
-        guard let index = posts.firstIndex(where: { $0.id == postId }) else { return }
-        posts[index].comments.append(PostComment(
+        guard let index = postStore.posts.firstIndex(where: { $0.id == postId }) else { return }
+        postStore.posts[index].comments.append(PostComment(
             userId: currentUser.id,
             userName: currentUser.name,
             text: text,
@@ -24,30 +24,40 @@ struct HomeView: View {
     }
 
     private func handleSave(postId: String) {
-        guard let index = posts.firstIndex(where: { $0.id == postId }) else { return }
-        if posts[index].saves.contains(currentUser.id) {
-            posts[index].saves.removeAll { $0 == currentUser.id }
+        guard let index = postStore.posts.firstIndex(where: { $0.id == postId }) else { return }
+        if postStore.posts[index].saves.contains(currentUser.id) {
+            postStore.posts[index].saves.removeAll { $0 == currentUser.id }
         } else {
-            posts[index].saves.append(currentUser.id)
+            postStore.posts[index].saves.append(currentUser.id)
         }
     }
 
     var body: some View {
         NavigationStack {
             ScrollView {
-                LazyVStack(spacing: 24) {
-                    ForEach($posts) { $post in
-                        PostCardView(
-                            post: $post,
-                            onRate: { handleRate(postId: post.id, rating: $0) },
-                            onComment: { handleComment(postId: post.id, text: $0) },
-                            onSave: { handleSave(postId: post.id) },
-                            currentUserId: currentUser.id
-                        )
+                if postStore.posts.isEmpty {
+                    ContentUnavailableView(
+                        "No plates shared yet",
+                        systemImage: "tray",
+                        description: Text("Share your first dish to see it appear on your home feed.")
+                    )
+                    .padding(.vertical, 80)
+                    .frame(maxWidth: .infinity)
+                } else {
+                    LazyVStack(spacing: 24) {
+                        ForEach($postStore.posts) { $post in
+                            PostCardView(
+                                post: $post,
+                                onRate: { handleRate(postId: post.id, rating: $0) },
+                                onComment: { handleComment(postId: post.id, text: $0) },
+                                onSave: { handleSave(postId: post.id) },
+                                currentUserId: currentUser.id
+                            )
+                        }
                     }
+                    .padding()
+                    .padding(.bottom, 24)
                 }
-                .padding()
-                .padding(.bottom, 24)
             }
             .background(Color(.systemGroupedBackground))
             .navigationTitle("HomePlate")
@@ -73,4 +83,5 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
+        .environmentObject(PostStore())
 }
